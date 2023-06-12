@@ -6,31 +6,11 @@
 /*   By: rertzer <rertzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 09:07:51 by rertzer           #+#    #+#             */
-/*   Updated: 2023/06/12 09:24:17 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/06/12 14:22:42 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "whatever.hpp"
-
-template<typename T>
-void	swap(T & a, T & b)
-{
-	T	c = a;
-	a = b;
-	b = c;
-}
-
-template<typename T>
-T const &	min(T const & a, T const & b)
-{
-	return (a < b) ? a : b;
-}
-
-template<typename T>
-T const &	max(T const & a, T const & b)
-{
-	return (a > b) ? a : b;
-}
 
 int main( void )
 {

@@ -6,7 +6,7 @@
 /*   By: rertzer <rertzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 10:21:22 by rertzer           #+#    #+#             */
-/*   Updated: 2023/06/12 10:37:00 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/06/12 16:10:53 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,29 @@ class	Array
 {
 	public:
 		Array();
-		Array(unsigned int const size);
-		Array(Array const &);
+		Array(unsigned int sz);
+		Array(Array<T> const & arr);
 		~Array();
 
-		Array &	operator=(Array const & rhs);
-		T &		operator[](unsigned int const i);
+		Array<T> &	operator=(Array<T> const & rhs);
+		T &			operator[](unsigned int i);
 
-		unsigned int const	size() const;
+		unsigned int size() const;
 	
 	private:
+
+		class	OutOfRangeException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return ("Array::exception: Index is out of range");
+				}
+		};
+
 		unsigned int const	n;
 		T *					array;
 };
+
+#include <Array.cpp>
 #endif
