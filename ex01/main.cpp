@@ -6,30 +6,11 @@
 /*   By: rertzer <rertzer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 09:35:42 by rertzer           #+#    #+#             */
-/*   Updated: 2023/06/12 10:16:22 by rertzer          ###   ########.fr       */
+/*   Updated: 2023/06/15 13:21:32 by rertzer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
-
-template<typename T>
-void	iter(T * array, unsigned int const size, void (*fun)(T &))
-{
-	for (unsigned int i = 0; i < size; i++)
-		fun(array[i]);
-}
-
-template<typename T>
-void	addone(T & a)
-{
-	a++;
-}
-
-template<typename T>
-void	print(T & a)
-{
-	std::cout << a << " ";
-}
 
 int	main(void)
 {
@@ -45,6 +26,13 @@ int	main(void)
 	std::cout << std::endl;
 	iter<char>(array2, 7, &addone);
 	iter<char>(array2, 7, &print);
+	std::cout << std::endl;
+
+	float	array3[] = {1.1f, 2.2f, 3.3f, 4.4f, 5.5f};
+	iter<float>(array3, 5, &print);
+	std::cout << std::endl;
+	iter<float>(array3, 5, &addone);
+	iter<float>(array3, 5, &print);
 	std::cout << std::endl;
 
 	return 0;
