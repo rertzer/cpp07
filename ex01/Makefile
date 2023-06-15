@@ -1,6 +1,6 @@
-CC = c++
+CXX = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g3
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 
 NAME = iter 
 
@@ -20,11 +20,11 @@ DEPS = $(OBJS:.o=.d)
 all: $(NAME) 
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
-	$(CC) $(FLAGS) -c -MMD -MP $< -o $@ -I $(INC_DIR)
+	$(CXX) $(CXXFLAGS) -c -MMD $< -o $@ -I $(INC_DIR)
 
 
 $(NAME): $(OBJ_DIR) $(OBJS)
-	$(CC) $(FLAGS) -o  $@ $(OBJS)
+	$(CXX) $(CXXFLAGS) -o  $@ $(OBJS)
 
 $(OBJ_DIR):
 	mkdir  $(OBJ_DIR)
@@ -37,7 +37,8 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean all
+re: fclean
+	make all
 
 -include $(DEPS)
 
